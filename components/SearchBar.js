@@ -36,7 +36,6 @@ export default class SearchBar extends Component {
 			inputText
 		} = this.props
 		let self = this
-		let options = cities.slice()
 		let favoritesList = favorites.map((city) => {
 			return (
 				<li key={city.id}>
