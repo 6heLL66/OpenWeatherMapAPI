@@ -63,9 +63,10 @@ class App extends Component {
 						onSelect={(city) =>
 							this.props.cityActions.selectCity(city)
 						}
-						onChange={(text) =>
+						onChange={(text) => {
+							console.log(text)
 							this.props.cityActions.changeInputText(text)
-						}
+						}}
 						inputText={inputText || ''}
 					/>
 				)}

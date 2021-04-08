@@ -1,10 +1,12 @@
-export default function findMatches(q, cb) {
+export default function findMatches(options, inputText, amount) {
 	let matches = []
-	let substrRegex = new RegExp(q, 'i')
+	let substrRegex = new RegExp(inputText, 'i')
+	let c = 0
 
-	this.props.cities.forEach((e) => {
-		substrRegex.test(e.name) && matches.push(e)
-	})
+	for (let i = 0; i < options.length; i++) {
+		substrRegex.test(options[i].name) && matches.push(options[i]) && c++
+		if (c > amount) break
+	}
 
-	cb(matches)
+	return matches
 }

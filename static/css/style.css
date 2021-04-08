@@ -13,6 +13,10 @@ body {
 	margin: 10px 0 0 0;
 }
 
+.search > .input-group-btn {
+	vertical-align: top !important;
+}
+
 .typeahead,
 .tt-query,
 .tt-hint {
@@ -32,7 +36,7 @@ body {
 
 .tt-menu {
 	width: 50%;
-	margin: 40px 0;
+	margin: 0px 0;
 	padding: 8px 0;
 	background-color: #fff;
 	border: 1px solid #ccc;
@@ -43,6 +47,10 @@ body {
 	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tt-menu > ul {
+	list-style: none;
+	padding: 0px;
 }
 
 .tt-suggestion {

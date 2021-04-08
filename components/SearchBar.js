@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
-import Typeahead from './Typeahead'
+
 import FavoritesMenu from './FavoritesMenu'
 
+import findMatches from '../helper/findMatches'
+
 import PropTypes from 'prop-types'
+
+import Autosuggest from 'react-autosuggest'
 
 export default class SearchBar extends Component {
 	constructor(props) {
 		super(props)
+		this.state = {
+			options: []
+		}
 		this.handleClick = this.handleClick.bind(this)
 	}
 
@@ -29,6 +36,7 @@ export default class SearchBar extends Component {
 			inputText
 		} = this.props
 		let self = this
+		let options = cities.slice()
 		let favoritesList = favorites.map((city) => {
 			return (
 				<li key={city.id}>
@@ -38,6 +46,12 @@ export default class SearchBar extends Component {
 				</li>
 			)
 		})
+		const inputProps = {
+			placeholder: 'Search for...',
+			value: inputText,
+			onChange: (e) => onChange(e.target.value),
+			className: 'form-control'
+		}
 
 		return (
 			<div className="search input-group">
@@ -46,11 +60,36 @@ export default class SearchBar extends Component {
 					selectedCity={selectedCity}
 				/>
 
-				<Typeahead
-					cities={cities}
-					onSelect={(city) => onSelect(city)}
-					onChange={onChange}
-					inputText={inputText}
+				<Autosuggest
+					suggestions={findMatches(this.state.options, inputText, 5)}
+					onSuggestionsClearRequested={() =>
+						this.setState({ options: [] })
+					}
+					onSuggestionsFetchRequested={() =>
+						this.setState({ options: cities.slice() })
+					}
+					getSuggestionValue={(opt) => opt.name}
+					onSuggestionSelected={(event, { suggestion }) =>
+						onSelect(suggestion)
+					}
+					renderSuggestion={(suggestion) => {
+						return (
+							<div className={'tt-suggestion'}>
+								{suggestion.name} {suggestion.country}
+							</div>
+						)
+					}}
+					renderSuggestionsContainer={({
+						containerProps,
+						children
+					}) => {
+						return (
+							<div {...containerProps} className={'tt-menu'}>
+								{children}
+							</div>
+						)
+					}}
+					inputProps={inputProps}
 				/>
 
 				<span className="input-group-btn">
