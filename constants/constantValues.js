@@ -9,22 +9,22 @@ export const speedPostfix = 'mps'
 export const humidityPostfix = '%'
 
 export const weatherOptions = {
-	weekday: 'long',
-	month: 'long',
-	day: 'numeric',
-	hour: 'numeric',
-	minute: 'numeric',
-	second: 'numeric'
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+  second: 'numeric'
 }
 export const forecastOptions = {
-	weekday: 'long',
-	month: 'long',
-	day: 'numeric'
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric'
 }
 
 export const dayPeriods = {
-	night: 'Night',
-	morning: 'Morning',
-	day: 'Day',
-	evening: 'Evening'
+  night: 'Night',
+  morning: 'Morning',
+  day: 'Day',
+  evening: 'Evening'
 }

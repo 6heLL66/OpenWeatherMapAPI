@@ -1,204 +1,204 @@
 body {
-	font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .loading-icon-position {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .search {
-	margin: 10px 0 0 0;
+  margin: 10px 0 0 0;
 }
 
 .search > .input-group-btn {
-	vertical-align: top !important;
+  vertical-align: top !important;
 }
 
 .typeahead,
 .tt-query,
 .tt-hint {
-	line-height: 30px;
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	outline: none;
+  line-height: 30px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  outline: none;
 }
 .typeahead:focus {
-	border: 2px solid #d6d6d6;
+  border: 2px solid #d6d6d6;
 }
 
 .tt-hint {
-	color: #999;
+  color: #999;
 }
 
 .tt-menu {
-	width: 50%;
-	padding: 8px 0;
-	background-color: #fff;
-	border: 1px solid #ccc;
-	border: 1px solid rgba(0, 0, 0, 0.2);
-	-webkit-border-radius: 8px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	-webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  width: 50%;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 .tt-menu > ul {
-	list-style: none;
-	margin-top: 30px;
-	padding-left: 0px;
-	margin-bottom: 0px;
+  list-style: none;
+  margin-top: 30px;
+  padding-left: 0px;
+  margin-bottom: 0px;
 }
 
 .tt-suggestion {
-	padding: 3px 20px;
-	font-size: 15px;
-	line-height: 24px;
+  padding: 3px 20px;
+  font-size: 15px;
+  line-height: 24px;
 }
 
 .tt-suggestion:hover {
-	cursor: pointer;
-	background-color: #d6d6d6;
+  cursor: pointer;
+  background-color: #d6d6d6;
 }
 
 .tt-suggestion.tt-cursor {
-	background-color: #d6d6d6;
+  background-color: #d6d6d6;
 }
 
 .tt-suggestion p {
-	margin: 0;
+  margin: 0;
 }
 
 .alert-margin {
-	margin: 10px 0px;
+  margin: 10px 0px;
 }
 
 .info-block {
-	padding: 10px 20px 10px;
+  padding: 10px 20px 10px;
 }
 
 .weather-icon-size {
-	width: 80px;
-	height: 80px;
-	margin: 0px 10px 20px 10px;
+  width: 80px;
+  height: 80px;
+  margin: 0px 10px 20px 10px;
 }
 
 .additional-icon-size {
-	width: 20px;
-	height: 20px;
-	padding: 2px;
+  width: 20px;
+  height: 20px;
+  padding: 2px;
 }
 
 .info-block-header {
-	margin: 0 0 20px;
-	padding: 0 0 15px;
+  margin: 0 0 20px;
+  padding: 0 0 15px;
 }
 
 .info-block-header-right {
-	padding: 10px 0 0 0;
-	float: right;
-	display: inline-block;
+  padding: 10px 0 0 0;
+  float: right;
+  display: inline-block;
 }
 
 .info-block-header-left {
-	display: inline-block;
+  display: inline-block;
 }
 
 .info-block-header-left-place {
-	font-size: 22px;
+  font-size: 22px;
 }
 
 .info-block-additional {
-	display: inline-block;
-	vertical-align: top;
-	font-size: 15px;
+  display: inline-block;
+  vertical-align: top;
+  font-size: 15px;
 }
 
 .info-block-additional-first {
-	padding: 0 20px 0 0;
-	width: 11%;
+  padding: 0 20px 0 0;
+  width: 11%;
 }
 
 .info-block-additional-item-sun {
-	display: inline-block;
-	margin: 0 10px 0 0;
+  display: inline-block;
+  margin: 0 10px 0 0;
 }
 
 .info-block-content-temperature {
-	display: inline-block;
-	padding: 0 20px 0 0;
-	vertical-align: top;
-	font-size: 100px;
-	line-height: 10px;
+  display: inline-block;
+  padding: 0 20px 0 0;
+  vertical-align: top;
+  font-size: 100px;
+  line-height: 10px;
 }
 
 .day-period {
-	display: inline-block;
-	padding: 0 0 0 5%;
-	width: 20%;
+  display: inline-block;
+  padding: 0 0 0 5%;
+  width: 20%;
 }
 
 .day-temp {
-	margin: 0 0 10px;
-	white-space: nowrap;
-	font-weight: 500;
-	font-size: 21px;
+  margin: 0 0 10px;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 21px;
 }
 
 .day-time {
-	margin: 0 0 10px;
-	font-weight: 400;
+  margin: 0 0 10px;
+  font-weight: 400;
 }
 
 .forecast-block-content-wrapper-right {
-	display: inline-block;
-	width: 50%;
+  display: inline-block;
+  width: 50%;
 }
 
 .forecast-block-content-wrapper-left {
-	display: inline-block;
-	width: 50%;
-	vertical-align: top;
+  display: inline-block;
+  width: 50%;
+  vertical-align: top;
 }
 
 .forecast-block-content-temperature {
-	display: inline-block;
-	padding: 0 20px 0 0;
-	vertical-align: top;
-	font-size: 100px;
-	line-height: 10px;
-	width: 30%;
+  display: inline-block;
+  padding: 0 20px 0 0;
+  vertical-align: top;
+  font-size: 100px;
+  line-height: 10px;
+  width: 30%;
 }
 
 .forecast-header {
-	margin: 0 0 20px;
-	padding: 0 0 15px;
-	border-bottom: 1px solid #e1e1e1;
-	text-transform: uppercase;
-	font-weight: 400;
-	font-size: 25px;
+  margin: 0 0 20px;
+  padding: 0 0 15px;
+  border-bottom: 1px solid #e1e1e1;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 25px;
 }
 
 .forecast-block-additional-first {
-	padding: 0 20px 0 0;
-	width: 30%;
+  padding: 0 20px 0 0;
+  width: 30%;
 }
 
 .icon-fav {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .block-border {
-	border-bottom: 1px solid #000000;
-	margin-bottom: 25px;
+  border-bottom: 1px solid #000000;
+  margin-bottom: 25px;
 }
 
 .header {
-	font-size: 35px;
-	font-weight: 300;
-	display: inline-block;
+  font-size: 35px;
+  font-weight: 300;
+  display: inline-block;
 }
