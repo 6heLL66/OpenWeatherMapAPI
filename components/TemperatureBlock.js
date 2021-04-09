@@ -16,9 +16,7 @@ export default class TemperatureBlock extends React.Component {
 					)}
 				</div>
 				<div className="info-block-additional forecast-block-additional-first">
-					<div className="info-block-additional-item">
-						{description}
-					</div>
+					<div className="info-block-additional-item">{description}</div>
 				</div>
 			</span>
 		)

@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 import FavoritesMenu from './FavoritesMenu'
 
-import findMatches from '../helper/findMatches'
-
 import PropTypes from 'prop-types'
 
 import Autosuggest from 'react-autosuggest'
+
+import findMatches from '../helper/findMatches'
 
 export default class SearchBar extends Component {
 	constructor(props) {
@@ -18,11 +18,25 @@ export default class SearchBar extends Component {
 	}
 
 	handleClick(city) {
-		const { onClick, onSelect } = this.props
+		const { onSelect } = this.props
 
 		onSelect(city)
+	}
 
-		setTimeout(onClick, 0)
+	renderSuggestion(suggestion) {
+		return (
+			<div className={'tt-suggestion'}>
+				{suggestion.name} {suggestion.country}
+			</div>
+		)
+	}
+
+	renderSuggestionContainer({ containerProps, children }) {
+		return (
+			<div {...containerProps} className={'tt-menu'}>
+				{children}
+			</div>
+		)
 	}
 
 	render() {
@@ -35,16 +49,21 @@ export default class SearchBar extends Component {
 			onChange,
 			inputText
 		} = this.props
-		let self = this
+
 		let favoritesList = favorites.map((city) => {
 			return (
 				<li key={city.id}>
-					<a href="#" onClick={() => self.handleClick(city)}>
+					<a
+						href="#"
+						onMouseDown={() => this.handleClick(city)}
+						onMouseUp={onClick}
+					>
 						{city.name}
 					</a>
 				</li>
 			)
 		})
+
 		const inputProps = {
 			placeholder: 'Search for...',
 			value: inputText,
@@ -71,32 +90,13 @@ export default class SearchBar extends Component {
 					onSuggestionSelected={(event, { suggestion }) =>
 						onSelect(suggestion)
 					}
-					renderSuggestion={(suggestion) => {
-						return (
-							<div className={'tt-suggestion'}>
-								{suggestion.name} {suggestion.country}
-							</div>
-						)
-					}}
-					renderSuggestionsContainer={({
-						containerProps,
-						children
-					}) => {
-						return (
-							<div {...containerProps} className={'tt-menu'}>
-								{children}
-							</div>
-						)
-					}}
+					renderSuggestion={this.renderSuggestion}
+					renderSuggestionsContainer={this.renderSuggestionContainer}
 					inputProps={inputProps}
 				/>
 
 				<span className="input-group-btn">
-					<button
-						className="btn btn-default"
-						type="button"
-						onClick={() => onClick()}
-					>
+					<button className="btn btn-default" type="button" onClick={onClick}>
 						Search
 					</button>
 				</span>

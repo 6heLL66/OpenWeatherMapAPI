@@ -18,10 +18,9 @@ export function changeInputText(text) {
 
 export function selectCity(city, cities) {
 	return (dispatch) => {
-		if (typeof city == 'string')
-			city = cities.find(
-				(x) => x.name.toLowerCase() === city.toLowerCase()
-			)
+		if (typeof city == 'string'){
+			city = cities.find((x) => x.name.toLowerCase() === city.toLowerCase())
+		}
 
 		dispatch(setSelectedCity(city))
 	}

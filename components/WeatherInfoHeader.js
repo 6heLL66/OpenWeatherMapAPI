@@ -9,8 +9,8 @@ export default class WeatherInfoHeader extends Component {
 	handleClickAdd() {
 		const { selectedCity, changeFavorites } = this.props
 
-		let favorites = this.props.favorites.slice()
-		favorites.push(selectedCity)
+		let favorites = [...this.props.favorites, selectedCity]
+
 		localStorage.setItem('favorites', JSON.stringify(favorites))
 
 		changeFavorites(favorites)
@@ -19,9 +19,7 @@ export default class WeatherInfoHeader extends Component {
 	handleClickRemove() {
 		const { selectedCity, changeFavorites } = this.props
 
-		let favorites = this.props.favorites.filter(
-			(x) => x.id !== selectedCity.id
-		)
+		let favorites = this.props.favorites.filter((x) => x.id !== selectedCity.id)
 		localStorage.setItem('favorites', JSON.stringify(favorites))
 
 		changeFavorites(favorites)
@@ -44,13 +42,13 @@ export default class WeatherInfoHeader extends Component {
 							<img
 								src="/img/Favorites-Add.svg"
 								className="icon-fav"
-								onClick={() => this.handleClickAdd()}
+								onClick={this.handleClickAdd}
 							/>
 						) : (
 							<img
 								src="/img/Favorites-Remove.svg"
 								className="icon-fav"
-								onClick={() => this.handleClickRemove()}
+								onClick={this.handleClickRemove}
 							/>
 						)}
 					</div>
@@ -59,19 +57,20 @@ export default class WeatherInfoHeader extends Component {
 							{new Date(weather.dt * dateFactor).toLocaleString(
 								dateType,
 								weatherOptions
-							)}{' '}
+							)}
+							&nbsp;
 						</span>
 					</div>
 				</div>
 				<div className="info-block-header-right">
 					{'Forecast: '}
-					<a href="#" onClick={(e) => onClick(e)} id="3">
+					<a href="#" onClick={onClick} id="3">
 						{'3 days '}
 					</a>
-					<a href="#" onClick={(e) => onClick(e)} id="7">
+					<a href="#" onClick={onClick} id="7">
 						{' 7 days '}
 					</a>
-					<a href="#" onClick={(e) => onClick(e)} id="14">
+					<a href="#" onClick={onClick} id="14">
 						{' 14 days'}
 					</a>
 				</div>

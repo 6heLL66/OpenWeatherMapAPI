@@ -56,7 +56,9 @@ export function fetchWeatherById(city) {
 			.then(function (json) {
 				if (Number(json.cod) !== successCode) {
 					dispatch(failureWeather(json))
-				} else dispatch(receiveWeather(city, json))
+				} else {
+					dispatch(receiveWeather(city, json))
+				}
 			})
 	}
 }
@@ -69,7 +71,9 @@ export function fetchWeatherByName(cityName) {
 		)
 			.then((response) => response.json())
 			.then(function (json) {
-				if (Number(json.cod) !== successCode) dispatch(failureWeather(json))
+				if (Number(json.cod) !== successCode) {
+					dispatch(failureWeather(json))
+				}
 				else {
 					let city = {
 						id: json.id,
@@ -93,8 +97,12 @@ export function fetchForecast(city, days) {
 		)
 			.then((response) => response.json())
 			.then(function (json) {
-				if (Number(json.cod) !== successCode) dispatch(failureWeather(json))
-				else dispatch(receiveForecast(city, json, days))
+				if (Number(json.cod) !== successCode) {
+					dispatch(failureWeather(json))
+				}
+				else {
+					dispatch(receiveForecast(city, json, days))
+				}
 			})
 	}
 }

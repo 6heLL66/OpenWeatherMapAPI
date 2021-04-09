@@ -12,7 +12,7 @@ export default class FavoritesMenu extends React.Component {
 					aria-haspopup="true"
 					aria-expanded="false"
 				>
-					{selectedCity ? selectedCity.name + ' ' : ' '}
+					{selectedCity && selectedCity.name} &nbsp;
 					<span className="caret"></span>
 				</button>
 

@@ -16,11 +16,10 @@ export default class ForecastInfo extends Component {
 			<div className="forecast-info">
 				<div className="info-block block-border">
 					<h1 className="header">
-						{' '}
-						Forecast for {days.length} days in {cityName}
+						&nbsp; Forecast for {days.length} days in {cityName}
 					</h1>
 					<div className="info-block-header-right">
-						<a href="#" onClick={() => onClick()}>
+						<a href="#" onClick={onClick}>
 							Back to current weather
 						</a>
 					</div>
