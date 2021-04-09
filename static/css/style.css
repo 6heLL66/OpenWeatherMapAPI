@@ -14,7 +14,7 @@ body {
 }
 
 .search > .input-group-btn {
-  vertical-align: top !important;
+  vertical-align: top;
 }
 
 .typeahead,
