@@ -5,6 +5,8 @@ import {
   weatherOptions
 } from '../constants/constantValues'
 
+import PropTypes from 'prop-types'
+
 export default class WeatherInfoHeader extends Component {
   handleClickAdd() {
     const { selectedCity, changeFavorites } = this.props
@@ -77,4 +79,12 @@ export default class WeatherInfoHeader extends Component {
       </div>
     )
   }
+}
+
+WeatherInfoHeader.propTypes = {
+  selectedCity: PropTypes.object,
+  changeFavorites: PropTypes.func,
+  weather: PropTypes.object,
+  onClick: PropTypes.func,
+  favorites: PropTypes.array
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class FavoritesMenu extends React.Component {
   render() {
@@ -30,3 +31,9 @@ export default class FavoritesMenu extends React.Component {
     )
   }
 }
+
+FavoritesMenu.propsTypes = {
+  selectedCity: PropTypes.object,
+  favoritesList: PropTypes.array
+}
+

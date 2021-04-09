@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class CommonWeatherProperty extends React.Component {
   render() {
@@ -11,3 +12,9 @@ export default class CommonWeatherProperty extends React.Component {
     )
   }
 }
+CommonWeatherProperty.propTypes = {
+  property: PropTypes.string,
+  src: PropTypes.string,
+  sun: PropTypes.bool
+}
+

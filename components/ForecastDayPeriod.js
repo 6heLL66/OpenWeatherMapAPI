@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PropTypes from 'prop-types'
+
 export default class ForecastDayPeriod extends React.Component {
   render() {
     const { value, time } = this.props
@@ -11,3 +13,8 @@ export default class ForecastDayPeriod extends React.Component {
     )
   }
 }
+ForecastDayPeriod.propTypes = {
+  value: PropTypes.string,
+  time: PropTypes.string
+}
+

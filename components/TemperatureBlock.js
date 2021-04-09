@@ -1,6 +1,8 @@
 import React from 'react'
 import { tempPostfix } from '../constants/constantValues'
 
+import PropTypes from 'prop-types'
+
 export default class TemperatureBlock extends React.Component {
   render() {
     const { description, pathToIcon, temp } = this.props
@@ -21,4 +23,10 @@ export default class TemperatureBlock extends React.Component {
       </span>
     )
   }
+}
+
+TemperatureBlock.propTypes = {
+  description: PropTypes.string,
+  pathToIcon: PropTypes.string,
+  temp: PropTypes.number
 }

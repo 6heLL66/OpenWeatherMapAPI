@@ -8,6 +8,8 @@ import {
   speedPostfix
 } from '../constants/constantValues'
 
+import PropTypes from 'prop-types'
+
 export default class WeatherMainInfo extends React.Component {
   render() {
     const { weather, pathToIcon } = this.props
@@ -55,4 +57,9 @@ export default class WeatherMainInfo extends React.Component {
       </div>
     )
   }
+}
+
+WeatherMainInfo.propTypes = {
+  weather: PropTypes.object,
+  pathToIcon: PropTypes.string
 }

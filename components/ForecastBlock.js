@@ -13,6 +13,8 @@ import {
   tempPostfix
 } from '../constants/constantValues'
 
+import PropTypes from 'prop-types'
+
 export default class ForecastBlock extends Component {
   render() {
     const { weather } = this.props
@@ -67,4 +69,8 @@ export default class ForecastBlock extends Component {
       </div>
     )
   }
+}
+
+ForecastBlock.propTypes = {
+  weather: PropTypes.object
 }
