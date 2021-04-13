@@ -3,10 +3,11 @@ import React, { Component } from 'react'
 import ForecastBlock from './ForecastBlock'
 
 import PropTypes from 'prop-types'
+import { withTranslation } from 'react-i18next'
 
-export default class ForecastInfo extends Component {
+class ForecastInfo extends Component {
   render() {
-    const { cityName, onClick } = this.props
+    const { cityName, onClick, t } = this.props
 
     let days = this.props.days.map((day) => {
       return <ForecastBlock key={day.dt} weather={day} />
@@ -16,11 +17,11 @@ export default class ForecastInfo extends Component {
       <div className="forecast-info">
         <div className="info-block block-border">
           <h1 className="header">
-            &nbsp; Forecast for {days.length} days in {cityName}
+            {t('ForecastHeader', { count: days.length, name: cityName })}
           </h1>
           <div className="info-block-header-right">
             <a href="#" onClick={onClick}>
-              Back to current weather
+              {t('ForecastBack')}
             </a>
           </div>
         </div>
@@ -35,3 +36,5 @@ ForecastInfo.propTypes = {
   onClick: PropTypes.func,
   days: PropTypes.array
 }
+
+export default withTranslation()(ForecastInfo)

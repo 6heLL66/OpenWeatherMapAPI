@@ -3,16 +3,19 @@ import CommonWeatherProperty from './CommonWeatherProperty'
 import TemperatureBlock from './TemperatureBlock'
 import {
   dateFactor,
+  enDateType,
   humidityPostfix,
   pressurePostfix,
+  ruDateType,
   speedPostfix
 } from '../constants/constantValues'
 
 import PropTypes from 'prop-types'
+import { withTranslation } from 'react-i18next'
 
-export default class WeatherMainInfo extends React.Component {
+class WeatherMainInfo extends React.Component {
   render() {
-    const { weather, pathToIcon } = this.props
+    const { weather, pathToIcon, i18n, t } = this.props
     return (
       <div className="info-block-content">
         <div className="info-block-content-wrapper-left">
@@ -24,7 +27,7 @@ export default class WeatherMainInfo extends React.Component {
 
           <div className="info-block-additional info-block-additional-second">
             <CommonWeatherProperty
-              property={weather.main.pressure + pressurePostfix}
+              property={weather.main.pressure + t(pressurePostfix)}
               src="/img/Pressure.svg"
             />
             <CommonWeatherProperty
@@ -32,7 +35,7 @@ export default class WeatherMainInfo extends React.Component {
               src="/img/Humidity.svg"
             />
             <CommonWeatherProperty
-              property={weather.wind.speed + speedPostfix}
+              property={weather.wind.speed + t(speedPostfix)}
               src="/img/Wind.svg"
             />
 
@@ -41,14 +44,18 @@ export default class WeatherMainInfo extends React.Component {
                 sun
                 property={new Date(
                   weather.sys.sunrise * dateFactor
-                ).toLocaleTimeString()}
+                ).toLocaleTimeString(
+                  i18n.language === 'en' ? enDateType : ruDateType
+                )}
                 src={'/img/Sunrise.svg'}
               />
               <CommonWeatherProperty
                 sun
                 property={new Date(
                   weather.sys.sunset * dateFactor
-                ).toLocaleTimeString()}
+                ).toLocaleTimeString(
+                  i18n.language === 'en' ? enDateType : ruDateType
+                )}
                 src={'/img/Sunset.svg'}
               />
             </div>
@@ -63,3 +70,5 @@ WeatherMainInfo.propTypes = {
   weather: PropTypes.object,
   pathToIcon: PropTypes.string
 }
+
+export default withTranslation()(WeatherMainInfo)

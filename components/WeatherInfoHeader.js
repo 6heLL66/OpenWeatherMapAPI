@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import {
   dateFactor,
-  dateType,
+  enDateType,
+  ruDateType,
   weatherOptions
 } from '../constants/constantValues'
 
 import PropTypes from 'prop-types'
+import { withTranslation } from 'react-i18next'
+import normalizeDate from '../helper/normalizeDate'
 
-export default class WeatherInfoHeader extends Component {
+class WeatherInfoHeader extends Component {
   handleClickAdd() {
     const { selectedCity, changeFavorites } = this.props
 
@@ -28,7 +31,7 @@ export default class WeatherInfoHeader extends Component {
   }
 
   render() {
-    const { weather, onClick, favorites } = this.props
+    const { weather, onClick, favorites, i18n, t } = this.props
     let isFavorite = !!favorites.find((x) => x.id === weather.id)
 
     return (
@@ -56,8 +59,9 @@ export default class WeatherInfoHeader extends Component {
           </div>
           <div className="info-block-header-left-date">
             <span>
-              {new Date(weather.dt * dateFactor).toLocaleString(
-                dateType,
+              {normalizeDate(
+                new Date(weather.dt * dateFactor),
+                i18n.language === 'en' ? enDateType : ruDateType,
                 weatherOptions
               )}
               &nbsp;
@@ -65,15 +69,15 @@ export default class WeatherInfoHeader extends Component {
           </div>
         </div>
         <div className="info-block-header-right">
-          {'Forecast: '}
+          {t('Forecast') + ': '}
           <a href="#" onClick={onClick} id="3">
-            {'3 days '}
+            {'3 ' + t('days1')}
           </a>
           <a href="#" onClick={onClick} id="7">
-            {' 7 days '}
+            {' 7 ' + t('days2')}
           </a>
           <a href="#" onClick={onClick} id="14">
-            {' 14 days'}
+            {' 14 ' + t('days2')}
           </a>
         </div>
       </div>
@@ -88,3 +92,5 @@ WeatherInfoHeader.propTypes = {
   onClick: PropTypes.func,
   favorites: PropTypes.array
 }
+
+export default withTranslation()(WeatherInfoHeader)

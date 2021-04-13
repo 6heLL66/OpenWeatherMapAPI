@@ -36,4 +36,3 @@ FavoritesMenu.propsTypes = {
   selectedCity: PropTypes.object,
   favoritesList: PropTypes.array
 }
-

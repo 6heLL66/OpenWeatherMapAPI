@@ -17,4 +17,3 @@ ForecastDayPeriod.propTypes = {
   value: PropTypes.string,
   time: PropTypes.string
 }
-

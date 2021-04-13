@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { withTranslation } from 'react-i18next'
 
 import FavoritesMenu from './FavoritesMenu'
 
@@ -7,8 +8,9 @@ import PropTypes from 'prop-types'
 import Autosuggest from 'react-autosuggest'
 
 import findMatches from '../helper/findMatches'
+import LanguageMenu from './LanguageMenu'
 
-export default class SearchBar extends Component {
+class SearchBar extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -47,7 +49,8 @@ export default class SearchBar extends Component {
       selectedCity,
       favorites,
       onChange,
-      inputText
+      inputText,
+      t
     } = this.props
 
     let favoritesList = favorites.map((city) => {
@@ -65,7 +68,7 @@ export default class SearchBar extends Component {
     })
 
     const inputProps = {
-      placeholder: 'Search for...',
+      placeholder: t('Placeholder'),
       value: inputText,
       onChange: (e) => onChange(e.target.value),
       className: 'form-control'
@@ -73,6 +76,7 @@ export default class SearchBar extends Component {
 
     return (
       <div className="search input-group">
+        <LanguageMenu selectedCity={selectedCity} reload={onClick} />
         <FavoritesMenu
           favoritesList={favoritesList}
           selectedCity={selectedCity}
@@ -93,7 +97,7 @@ export default class SearchBar extends Component {
 
         <span className="input-group-btn">
           <button className="btn btn-default" type="button" onClick={onClick}>
-            Search
+            {t('Search')}
           </button>
         </span>
       </div>
@@ -110,3 +114,5 @@ SearchBar.propTypes = {
   onChange: PropTypes.func,
   inputText: PropTypes.string
 }
+
+export default withTranslation()(SearchBar)
