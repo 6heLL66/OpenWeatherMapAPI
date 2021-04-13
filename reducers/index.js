@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux'
 import * as types from '../constants/actionTypes'
 
-function city(state = {}, action){
+function city(state = {}, action) {
   switch (action.type) {
     case types.SELECT_CITY:
       return {
         ...state,
+        inputText: action.city.name,
         selectedCity: action.city
       }
     case types.REQUEST_CITIES:
@@ -25,14 +26,22 @@ function city(state = {}, action){
         ...state,
         favorites: action.favorites
       }
+    case types.CHANGE_INPUT_TEXT:
+      return {
+        ...state,
+        inputText: action.text
+      }
     default:
       return state
   }
 }
 
-function weatherByCity(state = {
-  isFetching: false
-}, action){
+function weatherByCity(
+  state = {
+    isFetching: false
+  },
+  action
+) {
   switch (action.type) {
     case types.REQUEST_WEATHER:
     case types.REQUEST_FORECAST:

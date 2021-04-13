@@ -1,5 +1,5 @@
 body {
-  font-family: 'Roboto', Arial, sans-serif
+  font-family: 'Roboto', Arial, sans-serif;
 }
 
 .loading-icon-position {
@@ -9,8 +9,12 @@ body {
   transform: translate(-50%, -50%);
 }
 
-.search{
+.search {
   margin: 10px 0 0 0;
+}
+
+.search > .input-group-btn {
+  vertical-align: top;
 }
 
 .typeahead,
@@ -18,32 +22,36 @@ body {
 .tt-hint {
   line-height: 30px;
   -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
   outline: none;
 }
-
 .typeahead:focus {
-  border: 2px solid #D6D6D6;
+  border: 2px solid #d6d6d6;
 }
 
 .tt-hint {
-  color: #999
+  color: #999;
 }
 
 .tt-menu {
   width: 50%;
-  margin: 40px 0;
   padding: 8px 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+.tt-menu > ul {
+  list-style: none;
+  margin-top: 30px;
+  padding-left: 0px;
+  margin-bottom: 0px;
 }
 
 .tt-suggestion {
@@ -54,12 +62,11 @@ body {
 
 .tt-suggestion:hover {
   cursor: pointer;
-  background-color: #D6D6D6;
+  background-color: #d6d6d6;
 }
 
 .tt-suggestion.tt-cursor {
-  background-color: #D6D6D6;
-
+  background-color: #d6d6d6;
 }
 
 .tt-suggestion p {
@@ -91,17 +98,17 @@ body {
   padding: 0 0 15px;
 }
 
-.info-block-header-right{
+.info-block-header-right {
   padding: 10px 0 0 0;
   float: right;
   display: inline-block;
 }
 
-.info-block-header-left{
+.info-block-header-left {
   display: inline-block;
 }
 
-.info-block-header-left-place{
+.info-block-header-left-place {
   font-size: 22px;
 }
 
@@ -111,17 +118,17 @@ body {
   font-size: 15px;
 }
 
-.info-block-additional-first{
+.info-block-additional-first {
   padding: 0 20px 0 0;
   width: 11%;
 }
 
-.info-block-additional-item-sun{
+.info-block-additional-item-sun {
   display: inline-block;
   margin: 0 10px 0 0;
 }
 
-.info-block-content-temperature{
+.info-block-content-temperature {
   display: inline-block;
   padding: 0 20px 0 0;
   vertical-align: top;
@@ -136,23 +143,23 @@ body {
 }
 
 .day-temp {
-    margin: 0 0 10px;
-    white-space: nowrap;
-    font-weight: 500;
-    font-size: 21px;
+  margin: 0 0 10px;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 21px;
 }
 
 .day-time {
-    margin: 0 0 10px;
-    font-weight: 400;
+  margin: 0 0 10px;
+  font-weight: 400;
 }
 
-.forecast-block-content-wrapper-right{
+.forecast-block-content-wrapper-right {
   display: inline-block;
   width: 50%;
 }
 
-.forecast-block-content-wrapper-left{
+.forecast-block-content-wrapper-left {
   display: inline-block;
   width: 50%;
   vertical-align: top;

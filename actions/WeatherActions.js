@@ -2,6 +2,8 @@ import fetch from 'isomorphic-fetch'
 
 import * as types from '../constants/actionTypes'
 import { selectCity } from './CityActions'
+import { apiKey } from '../constants/secretKeys'
+import { successCode } from '../constants/constantValues'
 
 function requestWeather(city) {
   return {
@@ -45,25 +47,33 @@ function receiveForecast(city, forecast, days) {
 }
 
 export function fetchWeatherById(city) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(requestWeather(city))
-    return fetch(`http://api.openweathermap.org/data/2.5/weather?id=${city.id}&units=metric&appid=33178d46dea4c98a92d98aa6ea4ebc24`)
-      .then(response => response.json())
-      .then(function(json) {
-        if(json.cod != '200') dispatch(failureWeather(json))
-        else dispatch(receiveWeather(city, json))
+    return fetch(
+      `http://api.openweathermap.org/data/2.5/weather?id=${city.id}&units=metric&appid=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then(function (json) {
+        if (Number(json.cod) !== successCode) {
+          dispatch(failureWeather(json))
+        } else {
+          dispatch(receiveWeather(city, json))
+        }
       })
   }
 }
 
 export function fetchWeatherByName(cityName) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(requestWeather(cityName))
-    return fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=33178d46dea4c98a92d98aa6ea4ebc24`)
-      .then(response => response.json())
-      .then(function(json) {
-        if(json.cod != '200') dispatch(failureWeather(json))
-        else {
+    return fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then(function (json) {
+        if (Number(json.cod) !== successCode) {
+          dispatch(failureWeather(json))
+        } else {
           let city = {
             id: json.id,
             name: json.name,
@@ -79,13 +89,18 @@ export function fetchWeatherByName(cityName) {
 }
 
 export function fetchForecast(city, days) {
-  return dispatch => {
+  return (dispatch) => {
     dispatch(requestForecast(city, days))
-    return fetch(`http://api.openweathermap.org/data/2.5/forecast/daily?id=${city.id}&cnt=${days}&units=metric&appid=33178d46dea4c98a92d98aa6ea4ebc24`)
-      .then(response => response.json())
-      .then(function(json) {
-        if(json.cod != '200') dispatch(failureWeather(json))
-        else dispatch(receiveForecast(city, json, days))
+    return fetch(
+      `http://api.openweathermap.org/data/2.5/forecast/daily?id=${city.id}&cnt=${days}&units=metric&appid=${apiKey}`
+    )
+      .then((response) => response.json())
+      .then(function (json) {
+        if (Number(json.cod) !== successCode) {
+          dispatch(failureWeather(json))
+        } else {
+          dispatch(receiveForecast(city, json, days))
+        }
       })
   }
 }
