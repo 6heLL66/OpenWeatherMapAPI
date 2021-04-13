@@ -21,7 +21,7 @@ import normalizeDate from '../helper/normalizeDate'
 class ForecastBlock extends Component {
   render() {
     const { weather, i18n, t } = this.props
-    console.log('WEATHER', weather)
+
     const pathToIcon = `/img/${weather.weather[0].main}.svg`
 
     return (
