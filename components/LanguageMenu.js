@@ -7,6 +7,8 @@ class LanguageMenu extends React.Component {
     const { i18n, selectedCity, reload } = this.props
     i18n.changeLanguage(lang)
 
+    localStorage.setItem('language', lang)
+
     selectedCity && reload()
   }
 
