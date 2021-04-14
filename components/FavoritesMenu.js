@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { withTranslation } from 'react-i18next'
 
-export default class FavoritesMenu extends React.Component {
+class FavoritesMenu extends React.Component {
   render() {
-    const { selectedCity, favoritesList } = this.props
+    const { selectedCity, favoritesList, t } = this.props
     return (
       <div className="input-group-btn">
         <button
@@ -23,7 +24,7 @@ export default class FavoritesMenu extends React.Component {
           <li>
             <a>
               <img src="/img/Favorites-Add.svg" />
-              Add city to favorites by clicking icon by near
+              {t('addFavorites')}
             </a>
           </li>
         </ul>
@@ -36,3 +37,5 @@ FavoritesMenu.propsTypes = {
   selectedCity: PropTypes.object,
   favoritesList: PropTypes.array
 }
+
+export default withTranslation()(FavoritesMenu)

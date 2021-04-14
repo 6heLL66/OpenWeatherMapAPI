@@ -47,7 +47,8 @@ export const resources = {
       ForecastHeader: 'Forecast for {{count}} days in {{name}}',
       ForecastBack: 'Back to current weather',
       hPa: 'hPa',
-      'm/s': 'm/s'
+      'm/s': 'm/s',
+      addFavorites: 'Add city to favorites by clicking icon by near'
     }
   },
   ru: {
@@ -64,7 +65,8 @@ export const resources = {
       ForecastHeader: 'Прогноз на {{count}} дней в {{name}}',
       ForecastBack: 'Вернуться к погоде',
       hPa: 'гПа',
-      'm/s': 'м/с'
+      'm/s': 'м/с',
+      addFavorites: 'Добавьте город в избранные нажав на иконку рядом'
     }
   }
 }
