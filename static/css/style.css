@@ -208,14 +208,14 @@ body {
   display: inline-block;
 }
 
-.lan-menu {
-  right: 2px;
-}
 
 .lan-menu > button {
   font-size: 16px;
   height: 34px;
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
 }
 
 .lan-menu > div {
@@ -229,5 +229,5 @@ body {
 }
 
 .lan-dropdown {
-  min-width: 65px;
+  min-width: 62px;
 }
