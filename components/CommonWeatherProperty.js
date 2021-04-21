@@ -17,4 +17,3 @@ CommonWeatherProperty.propTypes = {
   src: PropTypes.string,
   sun: PropTypes.bool
 }
-

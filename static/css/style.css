@@ -40,6 +40,7 @@ body {
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
+  position: absolute;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
@@ -128,6 +129,10 @@ body {
   margin: 0 10px 0 0;
 }
 
+.info-block-additional-item::first-letter {
+  text-transform: uppercase;
+}
+
 .info-block-content-temperature {
   display: inline-block;
   padding: 0 20px 0 0;
@@ -201,4 +206,28 @@ body {
   font-size: 35px;
   font-weight: 300;
   display: inline-block;
+}
+
+
+.lan-menu > button {
+  font-size: 16px;
+  height: 34px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+}
+
+.lan-menu > div {
+  font-size: 18px;
+  text-align: center;
+}
+
+.lan-menu > div:hover {
+  cursor: pointer;
+  background-color: #d6d6d6;
+}
+
+.lan-dropdown {
+  min-width: 62px;
 }

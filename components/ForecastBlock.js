@@ -4,27 +4,32 @@ import ForecastDayPeriod from './ForecastDayPeriod'
 import TemperatureBlock from './TemperatureBlock'
 import {
   dateFactor,
-  dateType,
   dayPeriods,
+  enDateType,
   forecastOptions,
   humidityPostfix,
   pressurePostfix,
+  ruDateType,
   speedPostfix,
   tempPostfix
 } from '../constants/constantValues'
 
 import PropTypes from 'prop-types'
+import { withTranslation } from 'react-i18next'
+import normalizeDate from '../helper/normalizeDate'
 
-export default class ForecastBlock extends Component {
+class ForecastBlock extends Component {
   render() {
-    const { weather } = this.props
+    const { weather, i18n, t } = this.props
+
     const pathToIcon = `/img/${weather.weather[0].main}.svg`
 
     return (
       <div className="info-block">
         <div className="forecast-header">
-          {new Date(weather.dt * dateFactor).toLocaleString(
-            dateType,
+          {normalizeDate(
+            new Date(weather.dt * dateFactor),
+            i18n.language === 'en' ? enDateType : ruDateType,
             forecastOptions
           )}
         </div>
@@ -35,7 +40,7 @@ export default class ForecastBlock extends Component {
           />
           <div className="info-block-additional info-block-additional-second">
             <CommonWeatherProperty
-              property={weather.pressure + pressurePostfix}
+              property={weather.pressure + t(pressurePostfix)}
               src="/img/Pressure.svg"
             />
             <CommonWeatherProperty
@@ -43,7 +48,7 @@ export default class ForecastBlock extends Component {
               src="/img/Humidity.svg"
             />
             <CommonWeatherProperty
-              property={weather.speed + speedPostfix}
+              property={weather.speed + t(speedPostfix)}
               src="/img/Wind.svg"
             />
           </div>
@@ -51,19 +56,19 @@ export default class ForecastBlock extends Component {
         <div className="forecast-block-content-wrapper-right">
           <ForecastDayPeriod
             value={Math.round(weather.temp.night) + tempPostfix}
-            time={dayPeriods.night}
+            time={t(dayPeriods.night)}
           />
           <ForecastDayPeriod
             value={Math.round(weather.temp.morn) + tempPostfix}
-            time={dayPeriods.morning}
+            time={t(dayPeriods.morning)}
           />
           <ForecastDayPeriod
             value={Math.round(weather.temp.day) + tempPostfix}
-            time={dayPeriods.day}
+            time={t(dayPeriods.day)}
           />
           <ForecastDayPeriod
             value={Math.round(weather.temp.eve) + tempPostfix}
-            time={dayPeriods.evening}
+            time={t(dayPeriods.evening)}
           />
         </div>
       </div>
@@ -74,3 +79,5 @@ export default class ForecastBlock extends Component {
 ForecastBlock.propTypes = {
   weather: PropTypes.object
 }
+
+export default withTranslation()(ForecastBlock)

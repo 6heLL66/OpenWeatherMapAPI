@@ -7,7 +7,8 @@ import App from './containers/App'
 
 const initialState = window.__INITIAL_STATE__
 const store = configureStore(initialState)
-//const rootElement = document.getElementById('root')
+
+import './i18n'
 
 render(
   <Provider store={store}>

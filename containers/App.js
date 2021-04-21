@@ -8,6 +8,7 @@ import * as cityActions from '../actions/CityActions'
 import SearchBar from '../components/SearchBar'
 import WeatherInfo from '../components/WeatherInfo'
 import ForecastInfo from '../components/ForecastInfo'
+import { withTranslation } from 'react-i18next'
 
 class App extends Component {
   componentDidMount() {
@@ -23,17 +24,18 @@ class App extends Component {
   handleSearch() {
     let { selectedCity, inputText } = this.props.city
     const { fetchWeatherById, fetchWeatherByName } = this.props.weatherActions
+    const { i18n } = this.props
 
     if (selectedCity !== undefined && selectedCity.name === inputText) {
-      fetchWeatherById(selectedCity)
+      fetchWeatherById(selectedCity, i18n.language)
     } else {
-      fetchWeatherByName(inputText || '')
+      fetchWeatherByName(inputText || '', i18n.language)
     }
   }
 
   handleForecast(e) {
-    const { weatherActions, city } = this.props
-    weatherActions.fetchForecast(city.selectedCity, e.target.id)
+    const { weatherActions, city, i18n } = this.props
+    weatherActions.fetchForecast(city.selectedCity, e.target.id, i18n.language)
   }
 
   render() {
@@ -106,4 +108,4 @@ export default connect(
       cityActions: bindActionCreators(cityActions, dispatch)
     }
   }
-)(App)
+)(withTranslation()(App))

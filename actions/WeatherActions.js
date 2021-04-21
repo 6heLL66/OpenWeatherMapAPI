@@ -46,11 +46,11 @@ function receiveForecast(city, forecast, days) {
   }
 }
 
-export function fetchWeatherById(city) {
+export function fetchWeatherById(city, lang) {
   return (dispatch) => {
     dispatch(requestWeather(city))
     return fetch(
-      `http://api.openweathermap.org/data/2.5/weather?id=${city.id}&units=metric&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/weather?id=${city.id}&units=metric&appid=${apiKey}&lang=${lang}`
     )
       .then((response) => response.json())
       .then(function (json) {
@@ -63,11 +63,11 @@ export function fetchWeatherById(city) {
   }
 }
 
-export function fetchWeatherByName(cityName) {
+export function fetchWeatherByName(cityName, lang) {
   return (dispatch) => {
     dispatch(requestWeather(cityName))
     return fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}&lang=${lang}`
     )
       .then((response) => response.json())
       .then(function (json) {
@@ -88,11 +88,11 @@ export function fetchWeatherByName(cityName) {
   }
 }
 
-export function fetchForecast(city, days) {
+export function fetchForecast(city, days, lang) {
   return (dispatch) => {
     dispatch(requestForecast(city, days))
     return fetch(
-      `http://api.openweathermap.org/data/2.5/forecast/daily?id=${city.id}&cnt=${days}&units=metric&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/forecast/daily?id=${city.id}&cnt=${days}&units=metric&appid=${apiKey}&lang=${lang}`
     )
       .then((response) => response.json())
       .then(function (json) {
